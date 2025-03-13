@@ -10,5 +10,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'quotes': [2, 'single', { 'avoidEscape': true }],
   },
 }
