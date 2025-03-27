@@ -39,7 +39,7 @@ export class FilmsEntity {
   @IsString()
   description: string;
 
-  @OneToMany(() => ScheduleEntity, (schedule) => schedule.films, {
+  @OneToMany(() => ScheduleEntity, (schedule) => schedule.film, {
     cascade: true,
   })
   schedule: ScheduleEntity[];

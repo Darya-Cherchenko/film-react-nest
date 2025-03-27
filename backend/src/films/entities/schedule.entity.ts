@@ -35,6 +35,6 @@ export class ScheduleEntity {
   @IsString()
   filmId: string;
 
-  @ManyToOne(() => FilmsEntity, (films) => films.schedule)
-  films: FilmsEntity;
+  @ManyToOne(() => FilmsEntity, (film) => film.schedule)
+  film: FilmsEntity;
 }
