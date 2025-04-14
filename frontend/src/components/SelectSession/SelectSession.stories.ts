@@ -20,9 +20,9 @@ export const Default: Story = {
   args: {
     sessions: [
         {
-            id: '1',
-            day: 'Monday',
-            time: '10:00',
+          id: '1',
+          day: 'Monday',
+          time: '10:00',
         },
         {
           id: '1',
@@ -30,15 +30,16 @@ export const Default: Story = {
           time: '12:00',
         },
         {
-            id: '2',
-            day: 'Tuesday',
-            time: '11:00',
+          id: '2',
+          day: 'Tuesday',
+          time: '11:00',
         },
         {
-            id: '3',
-            day: 'Wednesday',
-            time: '12:00',
+          id: '3',
+          day: 'Wednesday',
+          time: '12:00',
         },
-    ]
+    ],
+    selected: ''
   },
 };
