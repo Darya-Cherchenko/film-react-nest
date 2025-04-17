@@ -1,7 +1,7 @@
-FROM node:20-slim AS builder
+FROM node:21.1.0-alpine3.18 AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm i
 
 COPY . .
 RUN npm run build
