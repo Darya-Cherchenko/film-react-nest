@@ -17,15 +17,6 @@ jobs:
       packages: write 
 
     steps:
-      - name: set lower case owner name
-        run: /
-          echo "REPO=${OWNER,,}" >>${GITHUB_ENV}
-        env: 
-          OWNER: '${{ github.repository_owner }}'
-
-      - run: /
-          echo "repo ${REPO}"
-
       - name: Checkout repository
         uses: actions/checkout@v4
   
