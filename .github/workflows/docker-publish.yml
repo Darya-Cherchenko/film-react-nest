@@ -35,18 +35,18 @@ jobs:
         with:
             context: '{{defaultContext}}:backend'
             push: true
-            tags: ghcr.io/${{ github.repository_owner }}/backend:latest
+            tags: ghcr.io/${{ github.repository_owner_id }}/backend:latest
   
       - name: Build and push Frontend Docker image
         uses: docker/build-push-action@v6
         with:
             context: '{{defaultContext}}:frontend'
             push: true
-            tags: ghcr.io/${{ github.repository_owner }}/frontend:latest
+            tags: ghcr.io/${{ github.repository_owner_id }}/frontend:latest
 
       - name: Build and push Server Docker image
         uses: docker/build-push-action@v6
         with:
             context: '{{defaultContext}}:nginx'
             push: true
-            tags: ghcr.io/${{ github.repository_owner }}/server:latest
+            tags: ghcr.io/${{ github.repository_owner_id }}/server:latest
