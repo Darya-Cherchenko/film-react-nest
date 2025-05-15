@@ -13,11 +13,13 @@ export const configProvider = {
   },
 };
 
-export interface AppConfig {
-  database: AppConfigDatabase;
-}
-
 export interface AppConfigDatabase {
   driver: string;
   url: string;
+  username: string;
+  password: string;
+}
+
+export interface AppConfig {
+  database: AppConfigDatabase;
 }
