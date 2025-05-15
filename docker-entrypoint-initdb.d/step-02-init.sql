@@ -1,9 +1,4 @@
--- Создание базы данных
-CREATE DATABASE prac;
-CREATE USER prac WITH PASSWORD "prac";
-GRANT ALL PRIVILEGES ON DATABASE "prac" TO "prac";
-
-\connect prac
+\connect postgres
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
@@ -23,7 +18,7 @@ create table public.films
 );
 
 alter table public.films
-    owner to prac;
+    owner to postgres;
 
 INSERT INTO films("id","rating","director","tags","image","cover","title","about","description") VALUES('92b8a2a7-ab6b-4fa9-915b-d27945865e39',8.1,'Амелия Хьюз','Рекомендуемые','/bg6s.jpg','/bg6c.jpg','Сон в летний день','Фэнтези-фильм о группе друзей попавших в волшебный лес, где время остановилось.','Причудливый фэнтези-фильм, действие которого происходит в волшебном лесу, где время остановилось. Группа друзей натыкается на это заколдованное царство и поначалу проникается беззаботным духом обитателей, но потом друзьям приходится разойтись. А как встретиться снова, если нет ни времени, ни места встречи?');
 INSERT INTO films("id","rating","director","tags","image","cover","title","about","description") VALUES('0354a762-8928-427f-81d7-1656f717f39c',9.5,'Оливер Беннет','Рекомендуемые','/bg4s.jpg','/bg4c.jpg','Парадокс Нексуса','Фильм об эксперименте по соединению человеческих умов. Исследует вопросы неприкосновенности частной жизни, идентичности и самой природы человеческого сознания','В фильме исследуются последствия новаторского эксперимента по соединению человеческих умов. По мере развития проекта участники сталкиваются с вопросами неприкосновенности частной жизни, идентичности и самой природы человеческого сознания.');
@@ -50,7 +45,7 @@ create table public.schedules
 );
 
 alter table public.schedules
-    owner to prac;
+    owner to postgres;
 
 INSERT INTO schedules("daytime","filmId","hall","id","price","rows","seats","taken") VALUES('2024-06-28T10:00:53+03:00','0e33c7f6-27a7-4aa0-8e61-65d7e5effecf',0,'f2e429b0-685d-41f8-a8cd-1d8cb63b99ce',350,5,10,'');
 INSERT INTO schedules("daytime","filmId","hall","id","price","rows","seats","taken") VALUES('2024-06-28T14:00:53+03:00','0e33c7f6-27a7-4aa0-8e61-65d7e5effecf',1,'5beec101-acbb-4158-adc6-d855716b44a8',350,5,10,'');

@@ -8,7 +8,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
-      DB_NAME: ${DB_NAME}
+      DB_NAME: films
     volumes:
       - db_data:/var/lib/postgresql/data
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
@@ -16,6 +16,8 @@ services:
       - '5432:5432'
     networks:
       - internal
+    env_file:
+      - .env
 
   pgadmin:
     image: dpage/pgadmin4
@@ -51,15 +53,17 @@ services:
       PORT: 3000
       DEBUG: '*'
       DATABASE_DRIVER: 'postgres'
-      DATABASE_URL: 'postgresql://database:5432/prac'
-      DATABASE_USERNAME: ${DB_USER}
-      DATABASE_PASSWORD: ${DB_PASSWORD}
+      DATABASE_URL: 'postgres://database:5432/postgres'
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: admin
     ports:
       - 3000:3000
     networks:
       - internal
     depends_on:
       - database
+    env_file:
+      - .env
 
   server:
     image: 'ghcr.io/${OWNER}/server:latest'
