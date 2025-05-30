@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Card } from './Card';
-import {CDN_URL} from "../../utils/constants.ts";
+import {CDN_URL} from '../../utils/constants';
 
 const meta = {
   title: 'UI/Card',
@@ -19,7 +19,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    id: '123',
     image: `${CDN_URL}/bg1s.jpg`,
-    text: 'Архитекторы общества',
+    title: 'Архитекторы общества'
   },
 };
