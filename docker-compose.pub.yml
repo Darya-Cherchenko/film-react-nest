@@ -15,6 +15,8 @@ services:
       - '5432:5432'
     networks:
       - internal
+    env_file:
+      - .env
 
   pgadmin:
     image: dpage/pgadmin4
@@ -47,14 +49,16 @@ services:
       DEBUG: '*'
       DATABASE_DRIVER: 'postgres'
       DATABASE_URL: 'postgresql://database:5432/${DB_NAME}'
-      DATABASE_USERNAME: ${DB_USER}
-      DATABASE_PASSWORD: ${DB_PASSWORD}
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: admin
     ports:
       - 3000:3000
     networks:
       - internal
     depends_on:
       - database
+    env_file:
+      - .env
 
   server:
     image: 'ghcr.io/${OWNER}/server:latest'
